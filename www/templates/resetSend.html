@@ -1,0 +1,25 @@
+<ion-view view-title="Esqueci a senha" style="color:white">
+
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button class="no-text"></ion-nav-back-button>
+
+
+  </ion-nav-bar>
+
+    <ion-content scroll="false" ng-class="{expanded:$scope.isExpanded}">
+      <br />
+      <br />
+        <div class="padding">
+                <div class="list">
+                    <ion-md-input placeholder="Digite seu e-mail aqui" highlight-color="royal" type="text" ng-model="user.email"></ion-md-input>
+                    <br />
+                    <br />
+                    <input type="submit" class="button button-dark button-block icon-left " ng-click="resetPassword(user)" value="Enviar chave para o meu email" />
+                </div>
+        </div>
+
+        <!-- Div para login com rede social  -->
+    </ion-content>
+    <ion-footer-bar class="">
+    </ion-footer-bar>
+</ion-view>

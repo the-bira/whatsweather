@@ -1,0 +1,56 @@
+<ion-view>
+  <!-- <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded,
+    'has-header-fab-left': hasHeaderFabLeft,
+    'has-header-fab-right': hasHeaderFabRight}"
+    align-title="">
+
+    <ion-nav-back-button class="button-clear">
+       <i class="button button-icon icon-back ion-arrow-left-c"></i>
+     </ion-nav-back-button>>
+
+
+    <ion-nav-title side="left" >
+    </ion-nav-title>
+
+  </ion-nav-bar> -->
+
+  <ion-content scroll="true" class="background-sixed-blue">
+
+<br />
+    <div class="">
+      <div class="center-image">
+        <img  src="img/icones/earth1.png" />
+      </div>
+      <br />
+      <div class="center-all padding" style="color: white; font-size: 20px; font-weight:bold   ; text-align: center">
+        Para utilizar as vantagens do WeatherApp precisamos de sua localização, por favor nos dia aonde você está?
+      </div>
+
+      <br />
+      <div class="item-input padding">
+        <label class="item-input-wrapper">
+          <input class="validate" type="text" placeholder="Pesquise aqui a localidade" ng-model="location" location-location  location="location" places-auto-complete ng-model="location" />
+        </label>
+        <!-- <button class="button icon-right ion-pin button-calm"  ng-click=" getLocatization() " ></button> -->
+      </div>
+      <br />
+      <br />
+    </div>
+    <br/>
+    <div class="center-all" style="
+    background: #1d8ab3;
+    margin-top: -10%;
+     color: #1d8ab3;
+     height: 15%;
+     width: 100%;
+     <!-- position: absolute; -->
+     bottom: 0;
+     -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+     z-index: 5">
+      <button class=" footer-bar-item item-center borderBl" style="font-size: 15px; width: 50%" ng-click="setCity(location)" ng-if="location" >Confirmar</button>
+        <button class=" footer-bar-item item-center borderBl" style="font-size: 15px; width: 50%" ng-click="setCity(location)" ng-if="!location" disabled>Confirmar</button>
+    </div>
+
+  </ion-content>
+</ion-view>

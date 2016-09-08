@@ -1,0 +1,106 @@
+<ion-view>
+  <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded,
+    'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}"
+    align-title="center">
+
+    <ion-nav-back-button class="no-tex">
+      <div class="">
+        <button style="margin-left:-3px;margin-top:5px;color:#808080;" class="button button-icon button-clear icon ion-arrow-left-c larger" ng-click="backprincipal()"></button>
+      </div>
+    </ion-nav-back-button>
+
+
+    <ion-nav-title side="left">
+        <a>Configurações</a>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;"menu-toggle="right"></button>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+
+  <ion-content scroll="true" overflow-scroll="false">
+      <form name="userForm" novalidate class="prof">
+        <div class="profile-image-config">
+          <div class="profile-image-config-shadow"></div>
+          <img ng-src="data:image/jpeg;base64,{{user.image_profile}}" err-src="/img/ionic.png" />
+          <!-- <a ng-click="selImages()" class="icon ion-plus-round add-image">
+          </a> -->
+          <i>{{user.name}}</i>
+        </br>
+          <button class="profile-edit-button" ui-sref="app.perfil">editar</button>
+        </div>
+      <div class=""></div>
+
+        <ul id="configs" class="list">
+          <li class="item item-toggle">
+            <div class="config-buttons" style="background-color:#3A589B">
+              <i class="icon ion-social-facebook"></i>
+            </div>
+            <a>
+              Usar dados do Facebook
+            </a>
+             <label class="toggle toggle-calm">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+
+
+          <li class="item item-toggle">
+            <div class="config-buttons" style="background-color:#11C1FF">
+              <i class="icon ion-social-twitter"></i>
+            </div>
+            <a>
+              Usar dados do Twitter
+            </a>
+             <label class="toggle toggle-calm">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+          <li class="item item-toggle">
+            <div class="config-buttons" style="background-color:#1E6B88">
+              <i class="icon ion-ios-location"></i>
+            </div>
+            <a>
+              Ativar GPS
+            </a>
+             <label class="toggle toggle-calm">
+               <input type="checkbox" ng-model="gps" ng-checked="gps" ng-click="click(gps)" >
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+          <li class="item item-toggle">
+            <div class="config-buttons" style="background-color:#3B9ABD">
+              <i class="icon ion-ios-partlysunny"></i>
+            </div>
+            <a>
+              Receber Solicitações do clima
+            </a>
+             <label class="toggle toggle-calm">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+
+         </ul>
+
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Div para login com rede social  -->
+  </ion-content>
+</ion-view>

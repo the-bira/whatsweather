@@ -1,0 +1,133 @@
+<ion-view>
+  <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button class="no-tex">
+      <div class="">
+        <button style="margin-left:-3px;margin-top:5px;color:#808080;" class="button button-icon button-clear icon ion-arrow-left-c larger" ng-click="backprincipal()"></button>
+      </div>
+    </ion-nav-back-button>
+
+    <ion-nav-title class="head-location">
+      <a>Clima na minha rota</a>
+      <!-- <label style="margin-top:5%;background-color: #1C8BB3;color:white;margin-left:5%;" >Clima na minha Rota</label> -->
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;" menu-toggle="right"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content scroll="false" ng-class="{expanded:$scope.isExpanded}" class="">
+    <!-- <a class="icon ion-arrow-left-c" ui-sref="app.localization" style="color: #6d6d6d; font-size:40px; margin-top:200px;"></a><div style="color: #6d6d6d; font-size: 20px"> Clima na minha rota</div> -->
+    <div class="row">
+
+    </div>
+    <script id="location.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="item-input-inset">
+
+          <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input type="search" ng-model="search.query" placeholder="Search">
+          </label>
+
+
+
+        </ion-header-bar>
+        <ion-content>
+          <ion-list>
+            <ion-item ng-show="search.error">
+              {{search.error}}
+            </ion-item>
+            <ion-item ng-repeat="suggestion in search.suggestions" ng-click="choosePlace(suggestion)">
+              {{suggestion.description}}
+            </ion-item>
+          </ion-list>
+          <img src="https://developers.google.com/maps/documentation/places/images/powered-by-google-on-white.png" alt="" />
+        </ion-content>
+      </ion-modal-view>
+    </script>
+
+
+    <div class="row prof">
+      <div class="col col-10">
+        <div class="route-icons">
+          <i class="icon ion-android-locate route-icon-origin"></i>
+        </div>
+        <div class="route-icons">
+          <i class="icon ion-location route-icon-destination"></i>
+        </div>
+      </div>
+      <div class="col col-80">
+        <div class="item-input-inset">
+
+          <label class="item-input-wrapper route-inputs">
+            <h5>Ponto de Partida</h5>
+            <input id="destination" class="validate" type="text" location-origem origem="origem" placeholder="Ponto de Partida" places-auto-complete ng-model="origem" required ng-model-options="{ debounce: 10 }" />
+          </label>
+
+
+        </div>
+        <div class="item-input-inset">
+          <label class="item-input-wrapper route-inputs">
+            <h5>Destino</h5>
+            <input id="destination" class="validate" type="text" placeholder="Destino" location-destino destino="destino" places-auto-complete ng-model="destino" required ng-model-options="{ debounce: 100 }" />
+          </label>
+        </div>
+      </div>
+      <div class="col fa-rotate-45">
+        <i class="icon ion-shuffle" ng-click="shuffle_way(origem,destino); origem='' ; destino='' "></i>
+      </div>
+
+    </div>
+
+
+    <!-- <div class="button-bar">
+      <a class="button" ng-click="addOrigem(origem); search='';addDestino(destino)">Gerar Rota</a>
+    </div> -->
+
+    <div data-tap-disabled="true" ng-if="!change || verify(origem, destino)">
+      <ng-map zoom="1" class="map-route">
+        <directions draggable="false" travel-mode="DRIVING" origin="{{origem}}" destination="{{destino}}"></directions>
+        <custom-marker ng-repeat="location in maker" position="{{location.location}}" <div>
+          <div class="mapa-{{location.situation}}">
+          </div>
+    </div>
+    </custom-marker>
+
+    </ng-map>
+    </div>
+
+    <div data-tap-disabled="true" ng-if="change">
+      <ng-map zoom="1" class="map-route">
+        <directions draggable="false" travel-mode="DRIVING" origin="{{origem1}}" destination="{{destino1}}"></directions>
+        <custom-marker ng-repeat="location in maker" position="{{location.location}}">
+        <div>
+          <div class="mapa-{{location.situation}}">
+          </div>
+    </div>
+    </custom-marker>
+    </ng-map>
+    </div>
+
+
+
+
+    <!-- <div class="list card">
+      <a href="#" class="item ">
+        <label>Origem:</label>{{origem}}
+      </a>
+      <a href="#" class="item ">
+        <label>Destino:</label>{{destino}}
+      </a>
+    </div> -->
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+
+
+
+  </ion-content>
+</ion-view>

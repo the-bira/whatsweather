@@ -1,0 +1,38 @@
+<ion-modal-view>
+  <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+  <ion-nav-back-button class="no-text"></ion-nav-back-button>
+
+    <ion-nav-title class="head-location">
+      <a>Pesquise</a>
+      <!-- <label style="margin-top:5%;background-color: #1C8BB3;color:white;margin-left:5%;" >Clima na minha Rota</label> -->
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;"menu-toggle="right"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    <br />
+    <br />
+    <div class="item-input padding">
+      <label class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input type="search" ng-model="search.query" placeholder="Search">
+    </label>
+  </div>
+    <ion-list>
+      <ion-item ng-show="search.error">
+        {{search.error}}
+      </ion-item>
+      <ion-item ng-repeat="suggestion in search.suggestions" ng-click="choosePlace(suggestion)">
+        {{suggestion.description}}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+  <ion-footer-bar class="">
+
+  </ion-footer-bar>
+
+</ion-modal-view>

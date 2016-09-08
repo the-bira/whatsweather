@@ -1,0 +1,49 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-view name="fabContent"></ion-nav-view>
+    <ion-nav-view name="menuContent" ng-class=""></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu class="menu-board" side="right">
+    <ion-content scroll="true" class="menu-board">
+
+      <ion-list class="menu-board">
+        <ion-item>
+        </ion-item>
+        <ion-item nav-clear style="font-size:20px;" menu-close ui-sref="app.config">
+          <i class="ion-ios-gear">      Configurações</i>
+        </ion-item>
+        <ion-item style="font-size:20px;" nav-clear menu-close ui-sref="app.wallet">
+          <i class="ion-card">      Minha Carteira</i>
+        </ion-item>
+        <ion-item nav-clear style="font-size:20px;" menu-close ui-sref="app.addRoutes">
+          <i class="ion-paper-airplane large">    Clima na Rota</i>
+        </ion-item>
+        <ion-item nav-clear style="font-size:20px;" menu-close ng-controller="loginSocialCtrl" ng-click="deslogar()" ui-sref="app.login">
+          <i class="ion-log-out" style="font-size:22px;">      Sair</i>
+        </ion-item>
+        <ion-item nav-clear style="font-size:20px;" menu-close ui-sref="app.problemas">
+          <i class="ion-android-chat">      Relatar problemas</i>
+        </ion-item>
+
+      </ion-list>
+      <div style="height:30px;"> </div>
+
+      <div style="background-color:#1E6B88;color:white;height:40px;">
+        <label class="notification-title"> Notificações </label>
+      </div>
+      <div class="" ng-controller="PerfilCtrl" ng-repeat="log in user.user_logs">
+
+        <a class="item item-text-wrap user-logs" >
+          <img class="icon-log" src="img/icones/moedas/moeda-perfil.png" />
+          <div class="log-text">
+            {{log.description}}
+          </div>
+      </a>
+      </div>
+
+
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

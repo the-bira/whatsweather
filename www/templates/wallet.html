@@ -1,0 +1,115 @@
+<ion-view enable-menu-with-back-views="true">
+  <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center" enable-menu-with-back-views="true">
+    <ion-nav-back-button class="no-tex">
+      <div class="">
+        <button style="margin-left:-2px;margin-top:5px;color:#808080;" class="button button-icon button-clear icon ion-arrow-left-c larger" ng-click="backprincipal()"></button>
+      </div>
+    </ion-nav-back-button>
+
+
+    <ion-nav-title side="left">
+        <a>Minha Carteira</a>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;"menu-toggle="right"></button>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+
+  <ion-content scroll="true">
+
+      <div style="width:50%;margin: auto;" >
+        <br />
+        <h3 style="text-align:center;color:#8EC3D7;font-size:20px;top:50%;">
+          <b>Você Possui:</b>
+        </h3>
+      <h1 style="text-align:center;color:#8EC3D7;">{{user.we_money}}</h1>
+      <img style="position:relative;top:-60px;" src="img/icones/moedas/moeda-grande.png" />
+      <button class="wemoney-button" ui-sref="app.products">Como trocar WeMoneys</button>
+      </div>
+
+    <div class="">
+      <div class=" title-coins">
+        <b>Como Ganhar WeMoneys</b>
+      </div>
+
+      <a class="item ">
+        <div style="width:70%;float:left">
+          Cadastrar usuário
+          </div>
+          <div style="float:right;margin-right:3%;margin-top:3%;">
+              <img  src="img/icones/moedas/moeda-perfil.png" />
+          <label>50</label>
+        </div>
+        </a>
+      <a class="item ">
+          Completar Perfil
+          <div style="float:right;margin-right:3%;">
+            <img  src="img/icones/moedas/moeda-perfil.png" />
+            <label>10</label>
+          </div>
+        </a>
+
+      <a class="item ">
+        <div style="width:70%;float:left">
+          <div style="">Colaborar com informações sobre</div>
+          <div style=""> o tempo</div>
+        </div>
+        <div style="float:right;margin-right:3%;margin-top:3%;">
+          <img src="img/icones/moedas/moeda-perfil.png" />
+          <label>10</label>
+        </div>
+      </a>
+
+      <a class="item ">
+
+        <div style="width:70%;float:left">
+          <div style="">Colaborar com informações sobre</div>
+          <div style="">o tempo quando solicitado</div>
+        </div>
+
+        <div style="float:right;margin-top:3%;margin-right:3%;">
+          <img src="img/icones/moedas/moeda-perfil.png" />
+          <label>20</label>
+        </div>
+      </a>
+
+
+      <div class="item ">
+        <div style="width:70%;float:left">
+          <div style="">Colaborar com informação do</div>
+          <div style="">tempo quando solicitado</div>
+          <div style="">(Primeiro a responder)</div>
+        </div>
+
+        <div style="float:right;margin-top:5%;margin-right:3%;">
+          <img src="img/icones/moedas/moeda-perfil.png" />
+          <label>50</label>
+        </div>
+      </div>
+
+      <a class="item ">
+          Solicitar informação sobre o tempo
+          <div style="float:right;margin-right:5%;">
+            <img  src="img/icones/moedas/moeda-perfil.png" />
+            <label>5</label>
+          </div>
+        </a>
+
+      <a class="item ">
+        <div style="width:70%;float:left">
+          <div style="">Ser o primeiro a colaborar com o </div>
+          <div style="">tempo em um local sem informação</div>
+        </div>
+        <div style="float:right;;margin-top:5%;">
+          <img src="img/icones/moedas/moeda-perfil.png" />
+          <label>100</label>
+        </div>
+      </a>
+    </div>
+
+
+  </ion-content>
+</ion-view>

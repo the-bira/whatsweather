@@ -1,0 +1,32 @@
+<ion-view>
+  <ion-content scroll="false" class="background-sixed-blue">
+
+    <div class="padding ">
+      <br />
+      <br />
+      <form name="userForm" novalidate>
+        <div class="list">
+
+          <label class="item item-input">
+            <input type="email" placeholder="Email" name="email" ng-model="email" required>
+          </label>
+          <div>
+            <label class="item item-input">
+              <p ng-if="userForm.email.$error.email" class="help-block">Informe um email válido.</p>
+            </label>
+          </div>
+
+
+
+          <input
+          ng-disabled="userForm.$invalid"
+          type="submit" class="button button-dark button-block icon-left " ng-click="registerTwitter(email)" value="Registrar" />
+          <input type="submit" class="button button-dark button-block icon-left " ui-sref="app.login" value="Voltar" />
+        </div>
+      </form>
+    </div>
+    <!-- Div para login com rede social  -->
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,66 @@
+<ion-view view-title="Cadastro" style="color:white">
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button class="no-tex">
+          </ion-nav-back-button>
+
+  <ion-nav-title side="right" style="margin-left:20%;">
+      <a>Cadastro</a>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;"menu-toggle="right"></button>
+  </ion-nav-buttons>
+
+
+  </ion-nav-bar>
+
+
+    <ion-content scroll="true" class="" ng-class="{expanded:$scope.isExpanded} ">
+        <div class="padding ">
+            <form name="userForm" novalidate>
+
+                <div class="list">
+                    <label class="item item-input">
+                        <input type="text" name="name" placeholder="Nome" required ng-model="userregister.name" ng-minlength="3" required>
+                    </label>
+                    <div>
+                        <label class="item item-input">
+                            <p ng-show="userForm.name.$error.minlength" class="help">Nome muito curto</p>
+                        </label>
+                    </div>
+
+                    <label class="item item-input">
+                        <input type="email" placeholder="Email" name="email" ng-model="userregister.email" required>
+                    </label>
+                    <div>
+                        <label class="item item-input">
+                            <p ng-if="userForm.email.$error.email" class="help-block">Informe um email válido.</p>
+                        </label>
+                    </div>
+
+                    <label class="item item-input">
+                        <input type="password" placeholder="Senha" ng-model="userregister.password" ng-minlength="4" required>
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" placeholder="Confirmar Senha" ng-model="userregister.password_confirmation" ng-minlength="4" required>
+                    </label>
+
+                    <label class="item item-input">
+
+                    <div class="profile-image-register padding">
+                      <img ng-src="data:image/jpeg;base64,{{userregister.image_profile}}" err-src="/img/ionic.png" />
+                    </div>
+
+                      <button ng-click="click()" class="registerpick">
+                        Insira a foto
+                      </button>
+                  </label>
+
+                <input ng-disabled="userForm.$invalid" type="submit" class="button button-dark button-block icon-left " ng-click="registerEmail(userregister)" value="Registrar" />
+            </form>
+        </div>
+        </div>
+
+        <!-- Div para login com rede social  -->
+    </ion-content>
+</ion-view>

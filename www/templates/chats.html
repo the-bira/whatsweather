@@ -1,0 +1,55 @@
+<ion-view>
+
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button class="no-text"></ion-nav-back-button>
+
+    <ion-nav-title side="left" class="head-location">
+      <div style="float:left;">
+        <input type="text" style="margin-top:5%;background-color: #1C8BB3;color:white;margin-left:5%;" maxlength="50" value="{{location}}">
+      </div>
+
+    </ion-nav-title>
+
+    <ion-content>
+      <refresher></refresher>
+
+      <div ng-repeat="message in messages | orderBy:'created_at'">
+        <div class="chat-bubble left" ng-if="message.email !== user.email">
+          <div class="message" ng-bind-html="message.content | nl2br" autolinker>
+            {{message.content}}
+          </div>
+          <div class="message-detail">
+            <span class="bold">{{message.created_by}}</span>
+            <span class="date" am-time-ago="">{{message.created_at | date: 'dd/MM/yy HH:mm'}}</span>
+          </div>
+
+        </div>
+        <div class="chat-bubble right" ng-if="message.email === user.email">
+          <div class="message" ng-bind-html="message.content | nl2br" autolinker>
+            {{message.content}}
+          </div>
+          <div class="message-detail">
+            <span class="bold">{{message.created_by}}</span>
+            <span class="date" am-time-ago="">{{message.created_at | date: 'dd/MM/yy HH:mm'}}</span>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+
+    <ion-footer-bar class="">
+      <form name="sendMessageForm" ng-submit="submitAddMessage(newMessage)" novalidate>
+        <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+          <label class="item-input-wrapper">
+            <input ng-model="newMessage" type="text" value="" placeholder="Escreva sua mensagem..." required minlength="1" maxlength="1500" msd-elastic>
+          </label>
+          <div class="">
+            <button class="button button-icon icon ion-android-send " type="submit" ng-disabled="!newMessage || newMessage === ''">
+            </button>
+          </div>
+        </ion-footer-bar>
+      </form>
+
+    </ion-footer-bar>
+
+
+</ion-view>

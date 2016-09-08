@@ -1,0 +1,26 @@
+<ion-view view-title="">
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button ></ion-nav-back-button>
+
+    <ion-nav-title side="right" style="margin-left:20%;">
+        <a>Esqueci a senha</a>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;"menu-toggle="right"></button>
+    </ion-nav-buttons>
+
+
+
+  </ion-nav-bar>
+
+
+  <ion-content scroll="false"  >
+
+      <div class="list padding">
+        <ion-md-input placeholder="Digite a sua chave aqui" highlight-color="royal" type="text" ng-model="user.key"></ion-md-input>
+      <!-- <input class="" style="font-size: 15px;" ng-click="resetPasswordKeyEnter(user)" value="Entrar com a chave"></input> -->
+        <input type="submit" class="button button-dark button-block icon-left " ng-click="resetPasswordKeyEnter(user)" value="Entrar com a chave" />
+      </div>
+  </ion-content>
+</ion-view>

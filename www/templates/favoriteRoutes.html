@@ -1,0 +1,48 @@
+<ion-view>
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-right': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="right">
+    <ion-nav-back-button class="no-text">gggg</ion-nav-back-button>
+
+        <ion-nav-buttons side="right">
+          <button class="button button-icon button-clear ion-android-more-vertical" menu-toggle="right" ng-click=""></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+  <ion-content scroll="true" ng-class="{expanded:$scope.isExpanded}" class="background-sixed-blue">
+    <div class="item-input-inset">
+      <label class="item-input-wrapper">
+        <input id="destination" class="validate" type="text"
+        placeholder="Pesquisa" places-auto-complete ng-model="search" required
+         ng-model-options="{ debounce: 100 }"/>
+      </label>
+        <button class="button icon-right ion-pin button-calm" ng-click="getCurrentLocation()"></button>
+    </div>
+    <br />
+
+    <div class="button-bar">
+      <a class="button" ng-click="addOrigem(search); search=''" >Origem</a>
+      <a class="button" ng-click="addDestino(search)" >Destino</a>
+    </div>
+    <ng-map zoom="1">
+      <directions draggable="false" travel-mode="DRIVING" origin="{{origem}}" destination="{{destino}}"></directions>
+    </ng-map>
+
+<div class="list card">
+  <label class="item item-input">
+   <input type="text" placeholder=" Adicione o nome da Rota">
+ </label>
+
+  <a href="#" class="item ">
+    <label>Origem:</label>{{origem}}
+  </a>
+  <a href="#" class="item ">
+    <label>Destino:</label>{{destino}}
+  </a>
+</div>
+
+        <input type="submit" value="Salvar" class="button button-positive"/>
+      </div>
+
+
+
+  </ion-content>
+</ion-view>

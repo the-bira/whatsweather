@@ -1,0 +1,167 @@
+<ion-view>
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <!-- <ion-nav-back-button class="no-text"></ion-nav-back-button> -->
+
+    <ion-nav-title side="left" class="head-location">
+      <div style="float:left;">
+        <input type="text" style="margin-top:5%;background-color: #1C8BB3;color:white;margin-left:5%;" maxlength="50" value="{{location}}">
+      </div>
+      <div class="lupa">
+        <button class="button button-icon button-clear ion-android-search larger" ng-click="searchCity()" style="margin-left:-25px;"></button>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons class="loc" side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:white;" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <a id="header-aux" ng-controller="PerfilCtrl" ui-sref="app.perfil"><img ng-src="data:image/png;base64,{{user.image_profile}}" err-src="/img/ionic.png" /></a>
+    <h5 id="header-aux-text" ng-controller="PerfilCtrl" ng-click="app.wallet"><img ng-src="/img/icones/moedas/moeda-pequena.png" />{{user.we_money}}</h5>
+  </ion-nav-bar>
+
+  <ion-content scroll="true" ng-class="{expanded:$scope.isExpanded}">
+    <ion-slide-box show-pager="true" overflow-scroll="true">
+      <ion-slide style="height:105vh;">
+        <div class="{{weather_condition.image}} main-info">
+          <div class="moon-clock" ng-if=" moon === 'Lua Minguante'">
+            <i class="lua-minguante-icon increase-icon"></i>
+          </div>
+          <div class="moon-clock"  ng-if=" moon === 'Lua Cheia'">
+            <i  class="lua-cheia-icon increase-icon"></i>
+          </div>
+          <div class="moon-clock " ng-if=" moon === 'Lua Crescente'">
+            <i class="lua-crescente-icon increase-icon"></i>
+          </div>
+          <div class="moon-clock " ng-if=" moon === 'Lua Nova'">
+            <i class="lua-nova-icon increase-icon"></i>
+          </div>
+
+          <div class="" ng-click="openModal()" ng-if="currentHourDay">
+            <i class=" {{weather_condition.icon}} increase-{{weather_condition.icon}} "> </i>
+            <ds-widget-clock class="night-clock"></ds-widget-clock>
+          </div>
+          <div class="" ng-click="openModal()" ng-if="currentHourNight">
+            <i class=" {{weather_condition.icon}} increase-{{weather_condition.icon}}"> </i>
+            <ds-widget-clock-night class="night-clock"></ds-widget-clock>
+          </div>
+
+
+          <div ng-if="messageAPI" class="item-text-wrap message-api">
+            Ops! Não temos informações de usuários atualizadas para esta localidade.
+          </div>
+          <div ng-if="!messageAPI" class="item-text-wrap message-api">
+            Última atualização há 3 horas
+          </div>
+      </div>
+
+      </ion-slide>
+      <ion-slide style="height:100vh;">
+        <div class="infos {{weather_condition.image}}">
+          <br />
+          <div class="temperature">
+            <div class="temperature-block">
+
+
+            <div class="condition temp-condition">
+              <i class=" {{weather_condition.icon }}-condition condition-icon"></i>
+              <div class="text-condition">
+              <h5 >{{weather_condition.image|uppercase}}</h5>
+            </div>
+            </div>
+            <div class="min-max">
+              <h5><i class="icon ion-ios-arrow-up"></i>	{{temp.high}}° <i class="icon ion-ios-arrow-down"></i> {{temp.low}}°</h5>
+            </div>
+            <h1>{{temp.atual}}°</h1>
+          </div>
+          </div>
+          <div class="moon">
+            <div class="row">
+
+              <div class="col" ng-if=" moon === 'Lua Minguante'">
+                <i class="lua-minguante-icon "></i>
+              </div>
+              <div class="col disable-moon " ng-if=" moon != 'Lua Minguante'" >
+                <i class="lua-minguante-icon-disabled "></i>
+              </div>
+
+              <div class="col" ng-if=" moon === 'Lua Cheia'">
+                <i  class="lua-cheia-icon "></i>
+              </div>
+              <div class="col disable-moon" ng-if=" moon != 'Lua Cheia'" >
+                <i  class=" lua-cheia-icon "></i>
+              </div>
+              <div class="col" ng-if=" moon === 'Lua Crescente'">
+                <i class="lua-crescente-icon"></i>
+              </div>
+              <div class="col disable-moon" ng-if=" moon != 'Lua Crescente'">
+                <i class="lua-crescente-icon"></i>
+              </div>
+              <div class="col " ng-if=" moon === 'Lua Nova'">
+                <i class="lua-nova-icon "></i>
+              </div>
+              <div class="col disable-moon" ng-if=" moon != 'Lua Nova'">
+                <i class="lua-nova-icon "></i>
+              </div>
+            </div>
+            <div class="moon-title">
+              <a> {{moon}}</a>
+            </div>
+          </div>
+          <div class="sun">
+
+            <i class="sunday-icon"></i>
+            <i class="sunrise-icon"></i>
+            <div class="row sun-icons">
+              <div class="col">
+              </div>
+              <div class="col sunrisetime">
+                <!-- <i class="wi wi-horizon-alt "></i> -->
+                <a>{{sun.sunrise |uppercase}}</a>
+              </div>
+              <div class="col">
+              </div>
+              <div class="col sunrisetime">
+                <!-- <i class="wi wi-horizon "></i> -->
+                <a>{{sun.sunset |uppercase}}</a>
+              </div>
+              <div class="col">
+              </div>
+            </div>
+          </div>
+          <div class="wind row">
+            <div class="col">
+              <i class="wind-icon"></i>
+            </div>
+            <div class="col col-33 wind-data">
+              <a>Velocidade:</a>
+              <a>
+                {{wind.speed}} Km/h
+              </a>
+            </div>
+            <div class="col">
+              <i class="barometro-icon"></i>
+            </div>
+            <div class="col col-33 wind-data">
+              <a>Barômetro:</a>
+              <a>
+                {{termics.pressure}} mbar
+              </a>
+            </div>
+          </div>
+          <div class="termics">
+            <div class="row">
+              <div class="icon-termics col col-33">
+                <i class="wi {{weather_condition.icon}}-termics termics-icon"></i>
+              </div>
+              <div class="col ">
+                <a>Sensação Térmica:       {{weather_chill}} °</a>
+                <a>Umidade:       {{termics.humidity}}%</a>
+                <a>Visibilidade:        {{termics.visibility}} km</a>
+                <a>Indice UV:        {{indexUV.index}} ({{indexUV.risk}})</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

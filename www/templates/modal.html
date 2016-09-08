@@ -1,0 +1,25 @@
+<ion-modal-view class="modal-init">
+  <!-- <ion-header-bar class="bar-light">
+        </ion-header-bar> -->
+
+   <ion-content>
+     <h5 class="title-modal" >Escolha a pergunta!</h5>
+
+     <list  class="checkbox-royal">
+       <ion-checkbox ng-model="filter.question01" class="item-text-wrap">Como está o tempo na sua região agora?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question02" class="item-text-wrap" >Você acha que o tempo pode mudar hoje? Como?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question03" class="item-text-wrap">Está fazendo frio durante a noite?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question04" class="item-text-wrap" >Está fazendo calor durante a noite?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question05" class="item-text-wrap">Poderá fazer frio durante a noite?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question06" class="item-text-wrap">Poderá fazer calor durante a noite?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question07" class="item-text-wrap">Poderá chover?</ion-checkbox>
+       <ion-checkbox ng-model="filter.question08" class="item-text-wrap">Qual a sua previsão para os próximos dias?</ion-checkbox>
+     </ion-list>
+
+     <div class="button-bar social-login">
+       <button class="button button-small button-border button-balanced" ng-click = "closeModal()">Cancelar</button>
+       <button class="button button-small button-border button-balanced" ng-click = "closeModal()">Enviar</button>
+    </div>
+
+   </ion-content>
+</ion-modal-view>

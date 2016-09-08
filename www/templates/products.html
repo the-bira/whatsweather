@@ -1,0 +1,62 @@
+<ion-view>
+    <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center" enable-menu-with-back-views="true">
+
+      <ion-nav-buttons side="left">
+        <div class="">
+          <button style="margin-left:-2px;margin-top:5px;color:#808080;" class="button button-icon button-clear icon ion-arrow-left-c larger" ng-click="backprincipal()"></button>
+        </div>
+      </ion-nav-buttons>
+
+
+      <ion-nav-title side="left">
+          <a>Minha Carteira</a>
+      </ion-nav-title>
+
+
+        <ion-nav-buttons side="right">
+            <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;" menu-toggle="right"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+    <ion-content scroll="true">
+
+        <div style="width:50%;margin: auto;">
+            <br />
+            <h3 style="text-align:center;color:#8EC3D7;font-size:20px;top:50%;">
+          <b>Você Possui:</b>
+        </h3>
+            <h1 class="cu">{{user.we_money}}</h1>
+            <img style="position:relative;top:-60px;" src="img/icones/moedas/moeda-grande.png" />
+            <button class="wemoney-button" ui-sref="app.wallet">Como ganhar WeMoneys</button>
+        </div>
+
+        <div class="triangles">
+            <div class=" title-coins">
+                <b>Shopping WeMoney</b>
+            </div>
+        </div>
+        <div class="list-products" ng-repeat=" product in products">
+            <div class="list">
+                <a class="item item-thumbnail-left" href="#">
+                    <img src="{{product.img}}">
+                    <div class="product-wemoney">W$ {{product.wemoney}}</div>
+                    <div class="product-title">{{product.name}}</div>
+                    <div class="product-description">({{product.description}})</div>
+                    <div class="product-prevalue">De {{product.prevalue}}</div>
+                    <div class="product-posvalue">Por {{product.posvalue}}</div>
+                    <button class="product-button" ng-click="seeProduct(product)">Troque seu produto</button>
+                </a>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

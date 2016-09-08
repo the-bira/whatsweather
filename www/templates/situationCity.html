@@ -1,0 +1,72 @@
+<ion-view>
+  <!-- <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" menu-toggle="right"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar> -->
+  <ion-content scroll="false" class="background-sixed-blue" class="center-all">
+    <div>
+      <div class="image-weather">
+        <img src="img/icones/suntitle.png" />
+      </div>
+      <div style="text-align: center; color: white; font-size: 30px;" class="center-text">Olhe para o céu!</br>
+        <div style=""><b>Como está o tempo?</b> </div>
+      </div>
+    </div>
+
+    <div class="indice-weather row">
+      <div class="col">
+        <div class="button-royal-square " ng-click="getClima('sol')">
+          <div class="wii-icon">
+            <i class=" imageWeather-sun" ></i>
+          </div>
+          <div class="text-button-weather">Sol</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="button-royal-square" ng-click="getClima('nuvem')">
+          <div class="wii-icon">
+            <i class="imageWeather-cloud wi wi-day-cloudy" ></i>
+          </div>
+          <div class="text-button-weather"> Nuvem </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="button-royal-square" ng-click="getClima('chuva')">
+          <div class="wii-icon">
+            <i class=" imageWeather-rain wi wi-rain"></i>
+          </div>
+          <div class="text-button-weather"> Chuva </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="button-royal-square" ng-click="getClima('raio')">
+          <div class="wii-icon" style="margin-top:0.5px;">
+            <i class="imageWeather-lightning" ></i>
+          </div>
+          <div class="text-button-weather"> Raios </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="button-royal-square" ng-click="getClima('neve')">
+          <div class="wii-icon">
+            <i class="imageWeather-snow"></i>
+          </div>
+          <div class="text-button-weather"> Neve </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legenda-weather" style="margin-top:4px;">
+      Selecionar o que for mais próximo da situação real do local
+    </div>
+
+  </ion-content>
+  <ion-footer-bar class="footer-bar-custom-balanced-sixed-blue">
+    <button class="footer-bar-item item-center borderBl" style="font-size: 15px;" ng-click="skip_question()">Pular pergunta</button>
+  </ion-footer-bar>
+</ion-view>

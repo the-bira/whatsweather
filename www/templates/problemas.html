@@ -1,0 +1,44 @@
+<ion-view>
+    <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+      <ion-nav-back-button class="no-tex">
+        <div class="">
+          <button style="margin-left:-3px;margin-top:5px;color:#808080;" class="button button-icon button-clear icon ion-arrow-left-c larger" ng-click="backprincipal()"></button>
+        </div>
+      </ion-nav-back-button>
+        <ion-nav-title side="left">
+            <a>Relatar problemas</a>
+        </ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;" menu-toggle="right"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content scroll="true" ng-class="{expanded:$scope.isExpanded}" class="">
+      <br />
+        <div class="padding">
+            <div class="list">
+                Nome:
+                <label class="item item-input">
+                    <input type="text" name="name" placeholder="Nome" required ng-model="user.name" ng-minlength="3" required>
+                    <p ng-show="userForm.name.$error.minlength" class="help">Nome muito curto</p>
+                </label>
+                Email:
+                <label class="item item-input">
+                    <input type="email" placeholder="Email" name="email" ng-model="user.email" required>
+                    <p ng-if="userForm.email.upload-field$error.email" class="help-block">Informe um email válido.</p>
+                </label>
+
+                <label class="upload-field">Descrição:</label>
+                <div class="item item-input ">
+                    <textarea placeholder="Insira aqui a descrição do problema" ng-model="user.description"></textarea>
+                </div>
+                <br />
+
+
+                <input ng-disabled="userForm.$invalid" type="submit" class="button button-dark button-block icon-left " ng-click="sendProblem(user)" value="Registrar" />
+            </div>
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

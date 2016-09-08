@@ -1,0 +1,56 @@
+<ion-view>
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button class="no-tex">
+    </ion-nav-back-button>
+
+    <ion-nav-title side="left" class="head-location">
+      <div style="float:left;background-color: #1C8BB3;color:white;margin-left:5%;" >
+        Favoritos
+      </div>
+
+    </ion-nav-title>
+
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" menu-toggle="right"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+
+  <ion-content scroll="true" ng-class="{expanded:$scope.isExpanded}" class="">
+    <div class="item-input-inset">
+      <label class="item-input-wrapper">
+        <input id="destination" class="validate padding" type="text" maxlength="200" placeholder="Pesquisa" fav="fav" location-favorite ng-model="fav.location" required ng-model-options="{ debounce: 100 }" />
+      </label>
+    </div>
+
+    <br />
+    <br />
+    <div class="list" ng-click="search_weather()">
+    <a ng-if="fav" class="item item-icon-left item-icon-right" ng-click="search_not_favorite_weather(fav)">
+      <i class="icon ion-ios-timer-outline"></i>
+      <div style="size:12px;" class="item-text-wrap">
+        {{fav}}
+      </div>
+      <i class="icon ion-ios-heart-outline" ng-click="addFavorite({{searchFavorite}}) "></i>
+    </a>
+</div>
+
+    <div class="list" ng-repeat="favorite in favorites" >
+      <a class="item item-icon-left item-icon-right " ng-click="search_weather({{favorite}})" >
+        <i class="icon ion-ios-timer-outline"></i>
+        <div style="size:12px;" class="item-text-wrap">
+          {{favorite.location}}
+        </div>
+        <i class="icon ion-ios-heart heart"></i>
+      </a>
+    </div>
+
+
+  </ion-content>
+
+
+
+
+
+</ion-view>

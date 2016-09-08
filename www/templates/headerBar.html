@@ -1,0 +1,16 @@
+<ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+  <ion-nav-back-button class="no-text"></ion-nav-back-button>
+
+  <ion-nav-title side="left">
+    <div style="float:left;">
+      <label>{{location.city}} , {{location.region}}</label>
+    </div>
+    <div style="float:right;color:white">
+      <button class="button button-icon button-clear ion-android-search larger" ng-click="searchCity()"></button>
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-android-more-vertical" menu-toggle="right"></button>
+  </ion-nav-buttons>
+</ion-nav-bar>

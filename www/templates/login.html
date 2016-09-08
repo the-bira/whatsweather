@@ -1,0 +1,45 @@
+<ion-view view-title="Login" align-title="left">
+  <ion-content scroll="false" class="background-sixed-blue" ng-init="isloggednow()">
+    <img style="position:absolute" class=" logo" src="img/icones/logo.png" />
+    <div id="login" class="login-field padding">
+
+      <div class="padding">
+
+        <form name="userForm" novalidate>
+          <div class="list" style="margin-top:55%">
+            <i class="icon ion-email placeholder-icon"></i>
+            <ion-md-input placeholder="E-mail" name="email" class="item item-input" highlight-color="light" type="email" ng-model="user.email" required>
+            </ion-md-input>
+
+            <label class="item item-input">
+              <p ng-if="userForm.email.$error.email" class="help-block">Informe um email válido.</p>
+            </label>
+
+
+            <i class="ion ion-android-lock placeholder-icon"></i>
+            <ion-md-input placeholder="Senha" highlight-color="light" type="password" ng-model="user.password" required></ion-md-input>
+            <input ng-disabled="userForm.$invalid" type="submit" class="button button-block" ng-click="loginEmail(user)" value="Login" />
+        </form>
+
+        <div class="solicon"></div>
+        <div class="button-bar social-login">
+          <button class="button button-small button-border icon-left ion-social-facebook button-positive" ng-click="loginFacebook()">Facebook</button>
+          <button class="button button-small button-border icon-left ion-social-twitter button-calm" ng-click="loginTwitter()">Twitter</button>
+        </div>
+        <div style="text-align: center; margin-top: 1em;"><span style="color: #0b3747;">Esqueceu a senha?</span> <a style="color: #0b3747;" ui-sref="app.resetsend">Clique Aqui</a></div>
+        </div>
+      </div>
+      <!-- Div para login com rede social  -->
+      <div class="" style="text-align: center; align-items: 0; color: #0b3747;margin-top: -0.5em;">
+        Não possui uma conta?
+      </div>
+    </div>
+
+
+
+
+    <ion-footer-bar class="footer-bar-custom-balanced-sixed-blue">
+      <div class=" register-button  borderBlank2" ui-sref="app.register">Cadastre-se</div>
+    </ion-footer-bar>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view>
+
+  <ion-nav-bar class="header-verde" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button class="no-text"></ion-nav-back-button>
+
+
+
+  </ion-nav-bar>
+
+
+  <ion-content scroll="false">
+    <br />
+    <br />
+
+    <div class="padding">
+      <div class="list">
+        <label class="item item-input">
+          <input type="password" placeholder="Senha" ng-model= "user.password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Confirmar Senha" ng-model="user.password_confirmation">
+        </label>
+        <br />
+        <br />
+        <input type="submit" class="button button-dark button-block icon-left " ng-click="resetPasswordEdit(user)" value="Confirmar alterações" />
+        <input type="submit" class="button button-dark button-block icon-left " ui-sref="app.login" value="Voltar" />
+      </div>
+    </div>
+      <!-- Div para login com rede social  -->
+  </ion-content>
+</ion-view>

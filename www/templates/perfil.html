@@ -1,0 +1,89 @@
+<ion-view>
+  <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+    <ion-nav-back-button id="black-back" class="no-text" style="margin-top:1.75%;"></ion-nav-back-button>
+
+
+
+    <ion-nav-title side="left">
+      <div style="float:left;">
+        <a>Editar Perfil</a>
+      </div>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;" menu-toggle="right"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+
+  <ion-content scroll="true" overflow-scroll="false">
+      <form name="userForm" novalidate class="prof">
+        <div class="profile-image padding">
+          <img ng-src="data:image/jpeg;base64,{{user.image_profile}}" err-src="/img/ionic.png" />
+          <!-- <a ng-click="selImages()" class="icon ion-plus-round add-image">
+          </a> -->
+          <a ng-click="alterarFoto()" class="add-prof-image">
+            Altere sua foto
+          </a>
+
+
+        </div>
+        <div class="list">
+          <ion-md-input placeholder="Digite seu nome" hightlight-color="dark" ng-required type="text" ng-model="user.name" required>
+          </ion-md-input>
+
+          <div>
+            <label class="item item-input">
+              <p ng-show="userForm.name.$error.minlength" class="help">Username is too short.</p>
+            </label>
+          </div>
+
+          <ion-md-input placeholder="Digite seu e-mail" ng-required hightlight-color="dark" type="text" ng-model="user.email" required>
+          </ion-md-input>
+          <div>
+            <label class="item item-input">
+              <p ng-if="userForm.email.$error.email" class="help-block">Informe um email válido.</p>
+            </label>
+          </div>
+
+
+          <!-- <label class="item item-input item-select">
+            <div class="input-label">
+              Sexo
+            </div>
+            <select>
+              <option>Masculino</option>
+              <option>Feminino</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label class="item item-input ">
+            <div class="input-label">
+              Cidade/Estado
+            </div>
+            <div class="item-input">
+              <label class="item-input-wrapper">
+                <input  class="validate" type="text"
+                placeholder="Pesquisa" places-auto-complete ng-model="location" />
+              </label>
+            </div>
+          </label>
+          <ion-md-input placeholder="Digite sua localização" ng-required hightlight-color="dark" type="text" ng-model="loca" required>
+          </ion-md-input> -->
+
+          <ion-md-input placeholder="Digite sua senha" ng-required hightlight-color="dark"  type="password" ng-model="user.password" required>
+          </ion-md-input>
+          <ion-md-input placeholder="Confirme sua senha" ng-required hightlight-color="dark"  type="password" ng-model="user.password_confirmation" required>
+          </ion-md-input>
+
+
+          <input style="background-color: #0b3747;"ng-disabled="userForm.$invalid" type="submit" class="button button-dark button-block icon-left " ng-click="updateProfile(user)" value="Atualizar" />
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Div para login com rede social  -->
+  </ion-content>
+</ion-view>

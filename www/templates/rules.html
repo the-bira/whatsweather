@@ -1,0 +1,95 @@
+<ion-view>
+  <ion-nav-bar class="header-cinza" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center" enable-menu-with-back-views="true">
+
+    <ion-nav-buttons side="left">
+      <div class="">
+        <button style="margin-left:-2px;margin-top:5px;color:#808080;" class="button button-icon button-clear icon ion-arrow-left-c larger" ng-click="backprincipal()"></button>
+      </div>
+    </ion-nav-buttons>
+
+
+    <ion-nav-title side="left">
+      <a>Minha Carteira</a>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-android-more-vertical" style="color:#808080;" menu-toggle="right"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+
+  <ion-content scroll="true">
+
+    <div style="width:50%;margin: auto;">
+      <br />
+      <h3 style="text-align:center;color:#8EC3D7;font-size:20px;top:50%;">
+          <b>Você Possui:</b>
+        </h3>
+      <h1 class="cu">{{user.we_money}}</h1>
+      <img style="position:relative;top:-60px;" src="img/icones/moedas/moeda-grande.png" />
+      <button class="wemoney-button" ui-sref="app.wallet">Como ganhar WeMoneys</button>
+    </div>
+
+    <div class="triangles">
+      <div class=" title-coins">
+        <b>Shopping WeMoney </b>
+      </div>
+    </div>
+
+    <div class="list list-rules">
+      <a class="item item-thumbnail-left" href="#">
+        <img src="{{productSelected.img}}">
+        <!-- <div class="product-wemoney">W$ {{productSelected.wemoney}}</div> -->
+        <div class="product-title">{{productSelected.name}}</div>
+        <div class="product-description">({{productSelected.description}})</div>
+        <div class="product-prevalue">De {{productSelected.prevalue}}</div>
+        <div class="product-posvalue">Por {{productSelected.posvalue}}</div>
+      </a>
+
+    </div>
+
+    <div class="rules padding">
+      <div class="row rules-title">
+        <a>Como funciona:</a>
+      </div>
+      <div class="row rules-itens">
+        1) Solicite sua troca atráves do botão abaixo, confirmando sua troca de pontos;
+      </div>
+      <div class="row rules-itens">
+        2) Aguarde que entraremos em contato por email para validar seu pedido e ativar a troca;
+      </div>
+      <div class="row rules-itens">
+        3) Após a ativação enviaremos as informações para a utilização do cupom.
+      </div>
+      <div class="row rules-space">
+      </div>
+      <div class="row rules-title">
+        <a>Regras:</a>
+      </div>
+      <div class="row rules-itens">
+        Ofertas disponívela até dia 30/09/2016 ou até durarem os estoques
+      </div>
+      <div class="row rules-itens">
+        Na tela de regras: Acrescentar no texto que o valor do frete deve ser consultado no site http://www.lord79.com.br/
+      </div>
+
+
+    </div>
+
+    <button class="product-button-seeProduct" ng-click="sendBuy(productSelected)">Quero esse produto</button>
+    <div class="row">
+    </div>
+    <div class="row rules-space">
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+    </div>
+    <div class="">
+      <div class="">
+      </div>
+    </div>
+    <br />
+
+  </ion-content>
+</ion-view>
