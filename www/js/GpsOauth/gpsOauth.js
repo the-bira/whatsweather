@@ -21,8 +21,8 @@ angular.module('starter')
       $rootScope.weather_condition = data[0];
       $rootScope.count_weather = data[1];
 
-    })
-
+    });
+    $state.go('app.localization');
     $timeout(function() {
       $ionicLoading.hide();
       $state.go('app.localization');
